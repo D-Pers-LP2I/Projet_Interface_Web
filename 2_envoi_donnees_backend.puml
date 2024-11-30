@@ -1,0 +1,10 @@
+@startuml
+Title Diagramme 2 : Envoi des Données Backend (LP2I - 30/11/2024)
+participant Frontend
+participant Backend
+note right of Backend : Logique de vérification (Python)
+Frontend -> Backend : Envoi des données
+note left of Frontend : Données utilisateur via HTTP POST (Fetch API), format JSON
+Backend -> Frontend : Réponse en JSON sur HTTP/HTTPS
+note left of Backend : Réponse envoyée sous forme de JSON, via HTTP/HTTPS
+@enduml

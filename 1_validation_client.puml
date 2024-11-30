@@ -1,0 +1,16 @@
+@startuml
+Title Diagramme 1 : Validation Client (LP2I - 30/11/2024)
+actor Utilisateur
+participant Frontend
+note right of Frontend : HTML/CSS/JavaScript
+Utilisateur -> Frontend : Remplit le formulaire (Identifiant, Mot de passe, E-mail)
+Frontend -> Utilisateur : Accusé de réception des données (JavaScript)
+note left of Frontend : Validation interne via JavaScript
+alt Données Incorrectes
+    
+note left of Frontend : Message d'erreur à afficher (JavaScript)
+else Données Correctes
+    
+note left of Frontend : Données utilisateur prêtes à être envoyées via HTTP/HTTPS
+end
+@enduml

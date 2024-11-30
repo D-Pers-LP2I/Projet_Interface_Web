@@ -1,0 +1,15 @@
+@startuml
+Title Diagramme 3 : Vérification Backend (LP2I - 30/11/2024)
+participant Backend
+participant Vérification_Serveur
+note right of Vérification_Serveur : Logique de vérification (Python)
+note right of Backend : Flask/Python
+Backend -> Vérification_Serveur : Envoi des données utilisateur pour vérification (protocole interne ou API REST)
+alt Données Incorrectes
+    Vérification_Serveur -> Backend : Données utilisateur invalides
+note left of Vérification_Serveur : Retour de validation négative des données utilisateur, en interne (Message à afficher)
+else Données Correctes
+    Vérification_Serveur -> Backend : Données utilisateur valides
+note left of Vérification_Serveur : Retour de validation positive des données utilisateur, en interne (Message à afficher)
+end
+@enduml

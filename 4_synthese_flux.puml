@@ -1,0 +1,26 @@
+Title Diagramme 4 : Synthèse des Interactions (LP2I - 30/11/2024)
+actor Utilisateur
+participant Frontend
+participant Backend
+participant Vérification_Serveur
+note right of Frontend : HTML/CSS/JavaScript
+note right of Backend : Flask/Python
+note right of Vérification_Serveur : Logique de vérification (Python)
+Utilisateur -> Frontend : Remplit le formulaire (Identifiant, Mot de passe, E-mail)
+Frontend -> Frontend : Validation Côté Client
+alt Données Incorrectes
+    Frontend -> Utilisateur : Affiche un message d'erreur
+else Données Correctes
+    Frontend -> Utilisateur : Message de confirmation (JavaScript)
+    Frontend -> Backend : Envoi des données via POST (Fetch API)
+    Backend -> Vérification_Serveur : Vérifier les informations
+note left of Backend : Envoi pour validation, protocole interne ou API REST
+    alt Données Incorrectes
+        Vérification_Serveur -> Backend : Données invalides
+    else Données Correctes
+        Vérification_Serveur -> Backend : Données valides
+        Backend -> Frontend : Validation des données côté serveur
+note left of Backend : Réponse au client sous forme de JSON, via HTTP/HTTPS
+    end
+end
+@enduml
